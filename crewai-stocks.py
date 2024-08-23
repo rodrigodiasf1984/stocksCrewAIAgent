@@ -11,6 +11,7 @@ from crewai import Agent, Task, Crew, Process
 from langchain.tools import Tool
 from langchain_openai import ChatOpenAI
 from langchain_community.tools import DuckDuckGoSearchResults
+from groq import Groq
 
 import streamlit as st
 
@@ -29,9 +30,17 @@ yahoo_finance_tool = Tool(
 
 
 
+
+
+
 # IMPORT OPENAI LLM - GPT
-os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
-llm= ChatOpenAI(model= "gpt-3.5-turbo")
+# os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
+# llm= ChatOpenAI(model= "gpt-3.5-turbo")
+
+client = Groq()
+# GROQ API KEY
+os.environ["GROQ_API_KEYI"] = st.secrets["GROQ_API_KEYI"]
+llm= client.chat.llm("llama3-8b-8192")
 
 
 
