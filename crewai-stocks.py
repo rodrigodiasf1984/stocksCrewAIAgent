@@ -39,7 +39,7 @@ yahoo_finance_tool = Tool(
 
 client = Groq()
 # GROQ API KEY
-os.environ["GROQ_API_KEYI"] = st.secrets["GROQ_API_KEYI"]
+os.environ["GROQ_API_KEY"] = st.secrets["GROQ_API_KEY"]
 llm= client.chat.llm("llama3-8b-8192")
 
 
